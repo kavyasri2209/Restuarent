@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import { FaShoppingCart } from "react-icons/fa";
-import logo from "/Images/logo.png";
+import logo from "../Images/logo.png";
 
 function Navbar() {
   const { getTotalItems } = useContext(CartContext);

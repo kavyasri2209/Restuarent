@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MenuItem from "../components/MenuItem";
-import menuData from "../data/menuData";
+import { menuData } from "../data/menuData";
+
 
 function Menu() {
   const [category, setCategory] = useState("All");
