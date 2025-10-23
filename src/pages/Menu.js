@@ -1,58 +1,114 @@
-import React, { useState } from "react";
-import MenuItem from "../components/MenuItem";
-import { menuData } from "../data/menuData";
+import React, { useState, useMemo } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { menuData } from "../data/menuData"; // adjust path as needed
 
+const Menu = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
-function Menu() {
-  const [category, setCategory] = useState("All");
-  const [search, setSearch] = useState("");
+  const categories = ["All", ...Array.from(new Set(menuData.map((item) => item.category)))];
 
-  const categories = ["All", "Appetizers", "Main Course", "Breads", "Desserts", "Beverages", "South Indian"];
-
-  const filteredItems = menuData.filter(item => 
-    (category === "All" || item.category === category) &&
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredItems = useMemo(() => {
+    return menuData.filter((item) => {
+      const matchesCategory = selectedCategory === "All" || item.category === selectedCategory;
+      const matchesSearch =
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
 
   return (
-    <section style={{ backgroundColor: "#fffaf3", color: "#000", minHeight: "100vh" }}>
-      <div className="container py-5">
-        <h2 className="mb-4 fw-bold" style={{ color: "#ff7b00" }}>Menu</h2>
+    <div className="bg-light min-vh-100">
+      {/* Hero Section */}
+      <div className="bg-warning text-white py-5 text-center">
+        <div className="container">
+          <h1 className="display-5 fw-bold mb-2">Our Menu</h1>
+          <p className="lead mb-0">
+            Discover our delicious selection of authentic Indian cuisine
+          </p>
+        </div>
+      </div>
 
-        <div className="mb-4 d-flex flex-wrap gap-2">
-          {categories.map(cat => (
+      <div className="container py-5">
+        {/* Search Bar */}
+        <div className="row justify-content-center mb-4">
+          <div className="col-md-6">
+            <div className="input-group shadow-sm">
+              <span className="input-group-text bg-white border-end-0">
+                <i className="bi bi-search text-muted"></i>
+              </span>
+              <input
+                type="text"
+                className="form-control border-start-0"
+                placeholder="Search dishes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Category Filters */}
+        <div className="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          {categories.map((category) => (
             <button
-              key={cat}
-              className={`btn btn-sm ${category === cat ? "btn-warning" : "btn-outline-warning"}`}
-              onClick={() => setCategory(cat)}
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`btn btn-sm ${selectedCategory === category ? "btn-warning text-white" : "btn-outline-warning"
+                }`}
             >
-              {cat}
+              {category}
             </button>
           ))}
         </div>
 
-        <input
-          type="text"
-          placeholder="Search dishes..."
-          className="form-control mb-4"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
+        {/* Menu Items Grid */}
+        {filteredItems.length > 0 ? (
+          <div className="row g-4">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div className="card h-100 shadow-sm border-0">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="card-img-top"
+                    style={{ height: "200px", objectFit: "cover" }}
+                  />
+                  <div className="card-body">
+                    {/* Category Badge */}
+                    <div className="mb-2">
+                      <span className="badge bg-warning-subtle text-warning-emphasis">
+                        {item.category}
+                      </span>
+                    </div>
 
-        <div className="row">
-          {filteredItems.length > 0 ? (
-            filteredItems.map(item => (
-              <div className="col-lg-3 col-md-4 col-sm-6" key={item.id}>
-                <MenuItem item={item} />
+                    <h5 className="card-title fw-bold">{item.name}</h5>
+                    <p className="card-text text-muted small">{item.description}</p>
+
+                    <div className="d-flex justify-content-between align-items-center mt-3">
+                      <span className="fw-bold text-warning">₹{item.price}</span>
+                      <button className="btn btn-sm btn-outline-warning">
+                        <i className="bi bi-cart-plus me-1"></i>Add to Cart
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-            ))
-          ) : (
-            <p>No items found.</p>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-5">
+            <p className="text-muted fs-5">
+              No items found matching your search.
+            </p>
+          </div>
+        )}
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default Menu;
