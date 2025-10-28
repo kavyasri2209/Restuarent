@@ -62,7 +62,7 @@ const Home = () => {
             </Link>
             <Link
               to="/reservation"
-              className="btn btn-outline-light btn-lg px-4 fw-semibold"
+              className="btn btn-outline-light btn-lg px-4 fw-semibold text-white"
             >
               Reserve Table
             </Link>

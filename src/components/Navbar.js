@@ -81,13 +81,13 @@ const Navbar = () => {
               <i className="bi bi-cart3 fs-5 text-dark"></i>
               {cartCount > 0 && (
                 <span
-                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-orange"
+                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"
                   style={{
                     fontSize: "0.7rem",
                     transform: "translate(-30%, 30%)",
                   }}
                 >
-                  {cartCount}
+                  {cartCount} 
                 </span>
               )}
             </NavLink>

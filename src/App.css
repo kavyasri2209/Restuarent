@@ -89,14 +89,14 @@ a {
 }
 
 .btn:hover {
-  background-color: #ff7b00;
+  background-color: #ff7b00 !important;
 }
 
 .btn-color {
   border: 2px solid #efeded !important;
 }
 
-.badge {
+.badge1 {
   background-color: #9f4e03; /* property names use hyphens, not camelCase */
   color: #fff;
   font-weight: 500;

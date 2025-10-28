@@ -107,7 +107,7 @@ const Menu = () => {
                     <div>
                       <div className="d-flex justify-content-between align-items-center mb-3">
                         <span className="fw-bold text-primary">₹{item.price}</span>
-                        <span className="badge">{item.category}</span>
+                        <span className="badge1">{item.category}</span>
                       </div>
 
                       {/* ✅ Add to Cart now works */}
