@@ -113,7 +113,7 @@ const Menu = () => {
                       {/* ✅ Add to Cart now works */}
                       <button
                         onClick={() => addToCart(item)}
-                        className="btn btn-orange btn-sm rounded-pill w-100 px-3"
+                        className="btn btn-warning btn-sm rounded-pill w-100 px-3"
                       >
                         <i className="bi bi-cart-plus me-1"></i>Add to Cart
                       </button>
