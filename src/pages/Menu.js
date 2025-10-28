@@ -1,11 +1,14 @@
 import React, { useState, useMemo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { menuData } from "../data/menuData"; // adjust path as needed
+import { menuData } from "../data/menuData";
+import { useCart } from "../context/CartContext"; // ✅ Import cart context
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { addToCart } = useCart(); // ✅ Access addToCart from context
 
   const categories = ["All", ...Array.from(new Set(menuData.map((item) => item.category)))];
 
@@ -25,9 +28,7 @@ const Menu = () => {
       <div className="bg-warning text-white py-5 text-center">
         <div className="container">
           <h1 className="display-5 fw-bold mb-2">Our Menu</h1>
-          <p className="lead mb-0">
-            Discover our delicious selection of authentic Indian cuisine
-          </p>
+          <p className="lead mb-0">Discover our delicious selection of authentic Indian cuisine</p>
         </div>
       </div>
 
@@ -56,8 +57,15 @@ const Menu = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`btn btn-sm ${selectedCategory === category ? "btn-warning text-white" : "btn-outline-warning"
-                }`}
+              className={`btn btn-md border border-white ${
+                selectedCategory === category
+                  ? "btn-warning text-white"
+                  : "btn-outline-warning text-dark btn-color"
+              }`}
+              style={{
+                textDecoration: "none",
+                outline: "none",
+              }}
             >
               {category}
             </button>
@@ -68,42 +76,56 @@ const Menu = () => {
         {filteredItems.length > 0 ? (
           <div className="row g-4">
             {filteredItems.map((item) => (
-              <div key={item.id} className="col-12 col-sm-6 col-lg-4 col-xl-3">
-                <div className="card h-100 shadow-sm border-0">
+              <div key={item.id} className="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                <div
+                  className="card h-100 shadow-sm border-0 d-flex flex-column w-100"
+                  style={{
+                    backgroundColor: "#fffaf3",
+                    borderRadius: "12px",
+                  }}
+                >
+                  {/* Image */}
                   <img
                     src={item.image}
                     alt={item.name}
                     className="card-img-top"
-                    style={{ height: "200px", objectFit: "cover" }}
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      borderRadius: "12px 12px 0 0",
+                    }}
                   />
-                  <div className="card-body">
-                    {/* Category Badge */}
-                    <div className="mb-2">
-                      <span className="badge bg-warning-subtle text-warning-emphasis">
-                        {item.category}
-                      </span>
+
+                  {/* Card Body */}
+                  <div className="card-body d-flex flex-column justify-content-between flex-grow-1 text-dark">
+                    <div>
+                      <h5 className="card-title fw-bold mb-1">{item.name}</h5>
+                      <p className="card-text small mb-3">{item.description}</p>
                     </div>
 
-                    <h5 className="card-title fw-bold">{item.name}</h5>
-                    <p className="card-text text-muted small">{item.description}</p>
+                    {/* Bottom section */}
+                    <div>
+                      <div className="d-flex justify-content-between align-items-center mb-3">
+                        <span className="fw-bold text-primary">₹{item.price}</span>
+                        <span className="badge">{item.category}</span>
+                      </div>
 
-                    <div className="d-flex justify-content-between align-items-center mt-3">
-                      <span className="fw-bold text-warning">₹{item.price}</span>
-                      <button className="btn btn-sm btn-outline-warning">
+                      {/* ✅ Add to Cart now works */}
+                      <button
+                        onClick={() => addToCart(item)}
+                        className="btn btn-orange btn-sm rounded-pill w-100 px-3"
+                      >
                         <i className="bi bi-cart-plus me-1"></i>Add to Cart
                       </button>
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
           </div>
         ) : (
           <div className="text-center py-5">
-            <p className="text-muted fs-5">
-              No items found matching your search.
-            </p>
+            <p className="text-muted fs-5">No items found matching your search.</p>
           </div>
         )}
       </div>

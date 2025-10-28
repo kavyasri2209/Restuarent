@@ -98,7 +98,7 @@ const Login = () => {
 
             <div className="text-center mt-3 small">
               <span className="text-muted">Don't have an account? </span>
-              <Link to="/signup" className="text-warning fw-semibold">
+              <Link to="/signup" className="text-primary fw-semibold">
                 Sign Up
               </Link>
             </div>

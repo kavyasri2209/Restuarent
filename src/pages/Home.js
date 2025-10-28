@@ -50,15 +50,15 @@ const Home = () => {
         ></div>
         <div className="position-relative z-1 px-3">
           <h1 className="display-3 fw-bold mb-4">
-            Welcome to <span className="text-warning">LaCuisine</span>
+            Welcome to <span className="text-primary">LaCuisine</span>
           </h1>
-          <p className="lead mb-4">
+          <p className="lead mb-4 text-white">
             Experience authentic Indian cuisine crafted with love and tradition.
             Order directly and save on delivery fees!
           </p>
           <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
             <Link to="/menu" className="btn btn-warning btn-lg px-4 fw-semibold">
-              Order Now
+              <span className="text-white">Order Now</span>
             </Link>
             <Link
               to="/reservation"
@@ -102,11 +102,11 @@ const Home = () => {
                   <h5 className="fw-bold">{dish.name}</h5>
                   <p className="text-secondary mb-3">{dish.description}</p>
                   <div className="d-flex justify-content-between align-items-center px-3">
-                    <span className="fw-bold text-warning fs-5">
+                    <span className="fw-bold text-primary fs-5">
                       ₹{dish.price}
                     </span>
-                    <Link to="/menu" className="btn btn-sm btn-dark">
-                      View Menu
+                    <Link to="/menu" className="btn btn-md btn-warning">
+                      <span className="text-white">View Menu</span>
                     </Link>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Home = () => {
             <div className="col-md-4">
               <div className="p-4 border-0">
                 <div className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: "70px", height: "70px" }}>
-                  <i className="bi bi-egg-fried fs-3 text-dark"></i>
+                  <i className="bi bi-egg-fried fs-3 text-white"></i>
                 </div>
                 <h5 className="fw-bold mb-2">Authentic Flavors</h5>
                 <p className="text-secondary">
@@ -135,7 +135,7 @@ const Home = () => {
             <div className="col-md-4">
               <div className="p-4 border-0">
                 <div className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: "70px", height: "70px" }}>
-                  <i className="bi bi-clock-history fs-3 text-dark"></i>
+                  <i className="bi bi-clock-history fs-3 text-white"></i>
                 </div>
                 <h5 className="fw-bold mb-2">Fast Service</h5>
                 <p className="text-secondary">
@@ -146,7 +146,7 @@ const Home = () => {
             <div className="col-md-4">
               <div className="p-4 border-0">
                 <div className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: "70px", height: "70px" }}>
-                  <i className="bi bi-star-fill fs-3 text-dark"></i>
+                  <i className="bi bi-star-fill fs-3 text-white"></i>
                 </div>
                 <h5 className="fw-bold mb-2">Best Value</h5>
                 <p className="text-secondary">

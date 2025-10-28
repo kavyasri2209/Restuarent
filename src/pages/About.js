@@ -42,7 +42,7 @@ const About = () => {
               <div className="card h-100 text-center border-0 shadow-sm">
                 <div className="card-body">
                   <div className="bg-warning bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style={{width: "50px", height: "50px"}}>
-                    <i className="bi bi-geo-alt fs-4 text-warning"></i>
+                    <i className="bi bi-geo-alt fs-4 text-white"></i>
                   </div>
                   <h5 className="fw-bold mb-2">Location</h5>
                   <p className="text-muted small">
@@ -58,7 +58,7 @@ const About = () => {
               <div className="card h-100 text-center border-0 shadow-sm">
                 <div className="card-body">
                   <div className="bg-warning bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style={{width: "50px", height: "50px"}}>
-                    <i className="bi bi-telephone fs-4 text-warning"></i>
+                    <i className="bi bi-telephone fs-4 text-white"></i>
                   </div>
                   <h5 className="fw-bold mb-2">Phone</h5>
                   <p className="text-muted small">
@@ -73,7 +73,7 @@ const About = () => {
               <div className="card h-100 text-center border-0 shadow-sm">
                 <div className="card-body">
                   <div className="bg-warning bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style={{width: "50px", height: "50px"}}>
-                    <i className="bi bi-envelope fs-4 text-warning"></i>
+                    <i className="bi bi-envelope fs-4 text-white"></i>
                   </div>
                   <h5 className="fw-bold mb-2">Email</h5>
                   <p className="text-muted small">
@@ -88,7 +88,7 @@ const About = () => {
               <div className="card h-100 text-center border-0 shadow-sm">
                 <div className="card-body">
                   <div className="bg-warning bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style={{width: "50px", height: "50px"}}>
-                    <i className="bi bi-clock fs-4 text-warning"></i>
+                    <i className="bi bi-clock fs-4 text-white"></i>
                   </div>
                   <h5 className="fw-bold mb-2">Hours</h5>
                   <p className="text-muted small">
@@ -106,15 +106,15 @@ const About = () => {
           <h3 className="fw-bold mb-4">Why Order Directly?</h3>
           <div className="row">
             <div className="col-md-4 mb-3">
-              <h4 className="text-warning fw-bold">0%</h4>
+              <h4 className="text-primary fw-bold">0%</h4>
               <p className="text-muted">Commission Fees</p>
             </div>
             <div className="col-md-4 mb-3">
-              <h4 className="text-warning fw-bold">20%</h4>
+              <h4 className="text-primary fw-bold">20%</h4>
               <p className="text-muted">Lower Prices</p>
             </div>
             <div className="col-md-4 mb-3">
-              <h4 className="text-warning fw-bold">100%</h4>
+              <h4 className="text-primary fw-bold">100%</h4>
               <p className="text-muted">Authentic Quality</p>
             </div>
           </div>
