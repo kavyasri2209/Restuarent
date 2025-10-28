@@ -37,18 +37,21 @@ const Login = () => {
         <div className="card-body p-4">
           <div className="text-center mb-4">
             <div
-              className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3"
-              style={{ width: "60px", height: "60px" }}
+              className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3 bg-warning"
+              style={{
+                width: "60px",
+                height: "60px"
+              }}
             >
               <i className="bi bi-box-arrow-in-right fs-3 text-white"></i>
             </div>
-            <h3 className="fw-bold">Welcome Back</h3>
+            <h3 className="fw-bold text-dark">Welcome Back</h3>
             <p className="text-muted">Login to your account to continue</p>
           </div>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label fw-semibold">
+              <label htmlFor="email" className="form-label fw-semibold text-dark">
                 Email
               </label>
               <input
@@ -63,7 +66,7 @@ const Login = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="password" className="form-label fw-semibold">
+              <label htmlFor="password" className="form-label fw-semibold text-dark">
                 Password
               </label>
               <input
@@ -77,9 +80,7 @@ const Login = () => {
               />
             </div>
 
-            {error && (
-              <div className="alert alert-danger py-2 small">{error}</div>
-            )}
+            {error && <div className="alert alert-danger py-2 small">{error}</div>}
 
             <div className="alert alert-warning small">
               <strong>Demo Credentials:</strong>
@@ -97,8 +98,8 @@ const Login = () => {
             </button>
 
             <div className="text-center mt-3 small">
-              <span className="text-muted">Don't have an account? </span>
-              <Link to="/signup" className="text-primary fw-semibold">
+              <span className="text-muted">Don’t have an account? </span>
+              <Link to="/signup" className="text-decoration-none fw-semibold text-orange">
                 Sign Up
               </Link>
             </div>

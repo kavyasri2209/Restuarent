@@ -1,50 +1,16 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 
-// Import images from your Images folder
-import dish1 from "../Images/dish1.jpg";
-import dish2 from "../Images/dish2.jpg";
-import dish3 from "../Images/dish3.jpg";
-import dish4 from "../Images/dish4.jpg";
-import dish5 from "../Images/dish5.jpg";
-import dish6 from "../Images/dish6.jpg";
-import dish7 from "../Images/dish7.jpg";
-import dish8 from "../Images/dish8.jpg";
-import dish9 from "../Images/dish9.jpg";
-import dish10 from "../Images/dish10.jpg";
-import dish11 from "../Images/dish11.jpg";
-import dish12 from "../Images/dish12.jpg";
-import dish13 from "../Images/dish13.jpg";
-import dish14 from "../Images/dish14.jpg";
-
-// Image map for dynamic display
-const imageMap = {
-  "paneer-butter-masala": dish1,
-  "samosa": dish2,
-  "biryani": dish3,
-  "naan": dish4,
-  "gulab-jamun": dish5,
-  "dosa": dish6,
-  "dal-makhani": dish7,
-  "tandoori-chicken": dish8,
-  "mango-lassi": dish9,
-  "fried-rice": dish10,
-  "ras-malai": dish11,
-  "paneer-tikka": dish12,
-  "roti": dish13,
-  "idli-sambar": dish14,
-};
-
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart } = useCart();
 
   return (
     <div className="card mb-3 shadow-sm border-0">
       <div className="row g-0 align-items-center p-2">
-        {/* Item image */}
+        {/* 🖼️ Item Image */}
         <div className="col-auto">
           <img
-            src={imageMap[item.image] || dish1}
+            src={item.image} // ✅ Directly use image from menuData
             alt={item.name}
             className="img-fluid rounded"
             style={{
@@ -55,7 +21,7 @@ const CartItem = ({ item }) => {
           />
         </div>
 
-        {/* Item details */}
+        {/* 📝 Item Details */}
         <div className="col ps-3">
           <div className="d-flex justify-content-between align-items-start">
             <div>
@@ -79,7 +45,7 @@ const CartItem = ({ item }) => {
             </button>
           </div>
 
-          {/* Quantity controls */}
+          {/* 🔢 Quantity Controls */}
           <div className="d-flex justify-content-between align-items-center mt-3">
             <div className="d-flex align-items-center gap-2">
               <button
@@ -97,7 +63,7 @@ const CartItem = ({ item }) => {
               </button>
             </div>
 
-            {/* Price section */}
+            {/* 💰 Price Section */}
             <div className="text-end">
               <p className="mb-0 text-muted" style={{ fontSize: "0.85rem" }}>
                 ₹{item.price} each

@@ -103,3 +103,68 @@ a {
   border-radius: 10px;
   padding: 6px 10px;
 }
+
+/* === NAVBAR LINK STYLES (Home, Menu, About, etc.) === */
+.navbar .nav-link {
+  color: #000 !important; /* default black text */
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  border-radius: 6px;
+  padding: 8px 14px !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  background-color: #ff7b00 !important;
+  color: #fff !important;
+}
+
+/* === NAVBAR BUTTONS (Cart, Login, Signup) === */
+.navbar .btn {
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease-in-out;
+  color: #000 !important; /* default black text */
+  background-color: transparent !important;
+}
+
+/* Hover / Active effect for Cart & Login */
+.navbar .btn:hover,
+.navbar .btn:focus,
+.navbar .btn.active,
+.navbar .btn:active {
+  background-color: #ff7b00 !important;
+  color: #fff !important;
+}
+
+/* === SIGNUP BUTTON (Always Orange) === */
+.navbar .btn-signup {
+  background-color: #ff7b00 !important;
+  color: #fff !important;
+  border-radius: 6px;
+}
+
+.navbar .btn-signup:hover,
+.navbar .btn-signup:focus {
+  background-color: #e56f00 !important;
+  color: #fff !important;
+}
+
+/* === CART ICON === */
+.navbar .bi-cart3 {
+  color: #000 !important; /* black by default */
+  transition: color 0.3s ease;
+}
+
+.navbar .btn:hover .bi-cart3,
+.navbar .btn:focus .bi-cart3,
+.navbar .btn.active .bi-cart3 {
+  color: #fff !important;
+}
+
+/* === SMOOTH TRANSITION FOR ALL NAVBAR ITEMS === */
+.navbar .nav-link,
+.navbar .btn {
+  transition: all 0.3s ease-in-out;
+}
