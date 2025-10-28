@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import CartItem from "@/components/CartItem";
-import { useCart } from "@/context/CartContext";
+import CartItem from "../components/CartItem";      // ✅ Fixed path
+import { useCart } from "../context/CartContext";   // ✅ Fixed path
 
 const Cart = () => {
   const { cartItems, clearCart, getTotalPrice } = useCart();
@@ -21,11 +21,13 @@ const Cart = () => {
   if (cartItems.length === 0) {
     return (
       <div className="min-vh-50 d-flex align-items-center justify-content-center text-center">
-        <i className="bi bi-bag h1 text-muted mb-3"></i>
         <div>
+          <i className="bi bi-bag h1 text-muted mb-3"></i>
           <h2 className="fw-bold mb-2">Your cart is empty</h2>
           <p className="text-muted mb-3">Add some delicious items to get started!</p>
-          <Link to="/menu" className="btn btn-warning btn-lg">Browse Menu</Link>
+          <Link to="/menu" className="btn btn-warning btn-lg">
+            Browse Menu
+          </Link>
         </div>
       </div>
     );
