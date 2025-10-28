@@ -2,29 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import dish1 from "../Images/dish1.jpg";
-import dish2 from "../Images/dish2.jpg";
-import dish3 from "../Images/dish3.jpg";
-import dish4 from "../Images/dish4.jpg";
+import paneerButterMasala from "../Images/paneer-butter-masala.jpg";
+import samosa from "../Images/samosa.jpg";
+import biryani from "../Images/biryani.jpg";
+import naan from "../Images/naan.jpg";
 
 const Home = () => {
   const featuredDishes = [
     {
       name: "Paneer Butter Masala",
       price: 280,
-      image: dish2,
-      description: "Rich and creamy tomato-based curry",
+      image: paneerButterMasala,
+      description: "Rich and creamy paneer-based curry",
     },
     {
       name: "Vegetable Samosa",
       price: 80,
-      image: dish3,
+      image: samosa,
       description: "Crispy pastry with spiced filling",
     },
     {
       name: "Chicken Biryani",
       price: 320,
-      image: dish4,
+      image: biryani,
       description: "Aromatic rice with tender chicken",
     },
   ];
@@ -36,7 +36,7 @@ const Home = () => {
         className="text-center text-white d-flex align-items-center justify-content-center position-relative"
         style={{
           height: "600px",
-          backgroundImage: `url(${dish1})`,
+          backgroundImage: `url(${paneerButterMasala})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
