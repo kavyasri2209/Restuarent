@@ -99,7 +99,7 @@ const Login = () => {
 
             <div className="text-center mt-3 small">
               <span className="text-muted">Don’t have an account? </span>
-              <Link to="/signup" className="text-decoration-none fw-semibold text-orange">
+              <Link to="/signup" className="text-decoration-none fw-semibold text-primary">
                 Sign Up
               </Link>
             </div>

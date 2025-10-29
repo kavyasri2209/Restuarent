@@ -144,7 +144,7 @@ function Signup() {
 
             <div className="text-center mt-3 small">
               <span className="text-muted">Already have an account? </span>
-              <Link to="/login" className="text-orange fw-semibold text-decoration-none">
+              <Link to="/login" className="text-primary fw-semibold text-decoration-none">
                 Login
               </Link>
             </div>

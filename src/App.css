@@ -97,12 +97,14 @@ a {
 }
 
 .badge1 {
-  background-color: #9f4e03; /* property names use hyphens, not camelCase */
-  color: #fff;
+  background-color: #c36003 !important;
+  color: #fff !important;
   font-weight: 500;
-  border-radius: 10px;
-  padding: 6px 10px;
+  border-radius: 10px !important;
+  padding: 3px 6px !important;
+  font-size: 12px !important;
 }
+
 
 /* === NAVBAR LINK STYLES (Home, Menu, About, etc.) === */
 .navbar .nav-link {
