@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Signup() {
-  const { signup } = useContext(AuthContext);
+  const { signup } = useAuth(); // ✅ fixed here (was useContext(AuthContext))
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -24,23 +24,16 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (
-      !form.name ||
-      !form.email ||
-      !form.phone ||
-      !form.password ||
-      !form.confirmPassword
-    ) {
+    if (!form.name || !form.email || !form.phone || !form.password || !form.confirmPassword) {
       toast.error("Please fill all required fields");
       return;
     }
+
     if (form.password !== form.confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
 
-    // Attempt signup
     const success = signup({
       name: form.name,
       email: form.email,
@@ -144,7 +137,10 @@ function Signup() {
 
             <div className="text-center mt-3 small">
               <span className="text-muted">Already have an account? </span>
-              <Link to="/login" className="text-primary fw-semibold text-decoration-none">
+              <Link
+                to="/login"
+                className="text-primary fw-semibold text-decoration-none"
+              >
                 Login
               </Link>
             </div>

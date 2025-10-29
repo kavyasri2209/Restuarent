@@ -1,32 +1,34 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 
-// Create context
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-// Auth provider component
 export const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  // Load data from localStorage when app starts
+  // Load from localStorage on start
   useEffect(() => {
     const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const savedCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const savedUser = JSON.parse(localStorage.getItem("currentUser"));
     setUsers(savedUsers);
-    setCurrentUser(savedCurrentUser);
+    setCurrentUser(savedUser);
   }, []);
 
-  // Save users when list changes
+  // Save users list
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
 
-  // Save current user when it changes
+  // Save logged-in user
   useEffect(() => {
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    if (currentUser) {
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    } else {
+      localStorage.removeItem("currentUser");
+    }
   }, [currentUser]);
 
-  // Login user
+  // Login
   const login = (email, password) => {
     const user = users.find((u) => u.email === email && u.password === password);
     if (user) {
@@ -36,16 +38,16 @@ export const AuthProvider = ({ children }) => {
     return false;
   };
 
-  // Signup user
+  // Signup
   const signup = (data) => {
     if (users.find((u) => u.email === data.email)) return false;
     const newUser = { ...data, id: Date.now() };
-    setUsers([...users, newUser]);
+    setUsers((prev) => [...prev, newUser]);
     setCurrentUser({ id: newUser.id, name: newUser.name, email: newUser.email });
     return true;
   };
 
-  // Logout user
+  // Logout
   const logout = () => {
     setCurrentUser(null);
     localStorage.removeItem("currentUser");
@@ -55,11 +57,11 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         currentUser,
+        isAuthenticated: !!currentUser,
         users,
         login,
         signup,
         logout,
-        isAuthenticated: !!currentUser,
       }}
     >
       {children}
@@ -67,10 +69,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// ✅ Add this custom hook for easy use
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context)
-    throw new Error("useAuth must be used within an AuthProvider");
-  return context;
-};
+// ✅ Custom hook for easy usage
+export const useAuth = () => useContext(AuthContext);

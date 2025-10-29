@@ -6,7 +6,7 @@ function Footer() {
     <footer className="secondary text-white py-4 mt-5 shadow-sm">
       <div className="container text-center">
         {/* <h4 className="text-white">LaCuisine</h4> */}
-        <p>123, Food Street, City, Country | Phone: 9876543210 | Email: contact@lacuisine.com</p>
+        <p>123, Food Street, Visakhapatnam, India | Phone: 9876543210 | Email: contact@lacuisine.com</p>
         <div className="mb-2">
           <a href="#" className="mx-2 text-white"><FaFacebook /></a>
           <a href="#" className="mx-2 text-white"><FaInstagram /></a>

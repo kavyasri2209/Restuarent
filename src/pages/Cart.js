@@ -1,94 +1,85 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import CartItem from "../components/CartItem";      // ✅ Fixed path
-import { useCart } from "../context/CartContext";   // ✅ Fixed path
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import CartItem from "../components/CartItem";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { cartItems, clearCart, getTotalPrice } = useCart();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  const subtotal = getTotalPrice();
-  const tax = subtotal * 0.05; // 5% GST
-  const deliveryCharges = subtotal < 500 && subtotal > 0 ? 40 : 0;
-  const total = subtotal + tax + deliveryCharges;
-
   const handleCheckout = () => {
+    if (!isAuthenticated) {
+      toast.info("Please log in to place your order");
+      navigate("/login");
+      return;
+    }
+
+    toast.success("Order placed successfully!");
+    clearCart();
     navigate("/order");
   };
 
-  if (cartItems.length === 0) {
+  if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="min-vh-50 d-flex align-items-center justify-content-center text-center">
-        <div>
-          <i className="bi bi-bag h1 text-muted mb-3"></i>
-          <h2 className="fw-bold mb-2">Your cart is empty</h2>
-          <p className="text-muted mb-3">Add some delicious items to get started!</p>
-          <Link to="/menu" className="btn btn-warning btn-lg">
-            Browse Menu
-          </Link>
-        </div>
+      <div className="container text-center py-5">
+        <h3 className="fw-bold text-muted mb-3">Your Cart is Empty</h3>
+        <button
+          className="btn btn-warning text-white fw-semibold"
+          onClick={() => navigate("/menu")}
+        >
+          <i className="bi bi-arrow-left me-2"></i>Go to Menu
+        </button>
       </div>
     );
   }
 
+  const subtotal = getTotalPrice();
+  const tax = subtotal * 0.05; // 5% GST
+  const total = subtotal + tax;
+
   return (
     <div className="container py-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="fw-bold">Shopping Cart</h1>
-        <button className="btn btn-outline-danger" onClick={clearCart}>
-          <i className="bi bi-trash me-2"></i> Clear Cart
-        </button>
-      </div>
+      <h2 className="fw-bold text-center mb-4 text-dark">
+        Your Cart <i className="bi bi-cart-check"></i>
+      </h2>
 
-      <div className="row g-4">
-        {/* Cart Items */}
+      <div className="row">
+        {/* --- Left Side: Cart Items --- */}
         <div className="col-lg-8">
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
         </div>
 
-        {/* Order Summary */}
+        {/* --- Right Side: Summary --- */}
         <div className="col-lg-4">
-          <div className="card sticky-top shadow-sm">
+          <div className="card shadow border-0 sticky-top" style={{ top: "100px" }}>
             <div className="card-body">
-              <h4 className="fw-bold mb-4">Order Summary</h4>
+              <h4 className="fw-bold mb-3 text-center">Order Summary</h4>
+
               <div className="d-flex justify-content-between mb-2">
-                <span className="text-muted">Subtotal</span>
+                <span className="fw-semibold">Subtotal</span>
                 <span>₹{subtotal.toFixed(2)}</span>
               </div>
               <div className="d-flex justify-content-between mb-2">
-                <span className="text-muted">Tax (5% GST)</span>
+                <span className="fw-semibold">Tax (5%)</span>
                 <span>₹{tax.toFixed(2)}</span>
               </div>
-              <div className="d-flex justify-content-between mb-2">
-                <span className="text-muted">Delivery</span>
-                <span>
-                  {deliveryCharges === 0 ? (
-                    <span className="text-success">FREE</span>
-                  ) : (
-                    `₹${deliveryCharges}`
-                  )}
-                </span>
-              </div>
-              {subtotal > 0 && subtotal < 500 && (
-                <p className="text-muted small">
-                  Add ₹{(500 - subtotal).toFixed(2)} more for free delivery
-                </p>
-              )}
               <hr />
-              <div className="d-flex justify-content-between fw-bold fs-5">
-                <span>Total</span>
-                <span className="text-warning">₹{total.toFixed(2)}</span>
+              <div className="d-flex justify-content-between">
+                <h5 className="fw-bold">Total</h5>
+                <h5 className="fw-bold text-warning">₹{total.toFixed(2)}</h5>
               </div>
-              <button className="btn btn-warning w-100 mt-3" onClick={handleCheckout}>
-                Proceed to Checkout
+
+              <button
+                className="btn btn-warning text-white fw-semibold w-100 mt-4 py-2"
+                onClick={handleCheckout}
+              >
+                <i className="bi bi-bag-check-fill me-2"></i>Proceed to Checkout
               </button>
-              <Link to="/menu" className="btn btn-outline-secondary w-100 mt-2">
-                Continue Shopping
-              </Link>
             </div>
           </div>
         </div>
