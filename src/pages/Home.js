@@ -6,6 +6,11 @@ import paneerButterMasala from "../Images/paneer-butter-masala.jpg";
 import samosa from "../Images/samosa.jpg";
 import biryani from "../Images/biryani.jpg";
 import naan from "../Images/naan.jpg";
+import gulabJamun from "../Images/gulab-jamun.jpg";
+import dosa from "../Images/dosa.jpg";
+import dalMakhani from "../Images/dal-makhani.jpg";
+import tandooriChicken from "../Images/tandoori-chicken.jpg";
+import garlicNaan from "../Images/garlicnaan.jpg";
 
 const Home = () => {
   const featuredDishes = [
@@ -27,6 +32,42 @@ const Home = () => {
       image: biryani,
       description: "Aromatic rice with tender chicken",
     },
+    {
+      name: "Butter Naan",
+      price: 40,
+      image: naan,
+      description: "Soft, fluffy Indian bread brushed with butter",
+    },
+    {
+      name: "Gulab Jamun",
+      price: 120,
+      image: gulabJamun,
+      description: "Soft milk-solid dumplings soaked in rose-flavored sugar syrup",
+    },
+    {
+      name: "Masala Dosa",
+      price: 150,
+      image: dosa,
+      description: "Crispy rice crepe filled with spiced potato filling, served with sambar and chutney",
+    },
+    {
+      name: "Dal Makhani",
+      price: 240,
+      image: dalMakhani,
+      description: "Creamy black lentils slow-cooked with butter and cream",
+    },
+    {
+      name: "Tandoori Chicken",
+      price: 380,
+      image: tandooriChicken,
+      description: "Succulent chicken marinated in yogurt and spices, cooked in tandoor",
+    },
+    {
+      name: "Garlic Naan",
+      price: 50,
+      image: garlicNaan,
+      description: "Naan topped with fresh garlic and coriander",
+    },
   ];
 
   return (
@@ -35,7 +76,7 @@ const Home = () => {
       <section
         className="text-center text-white d-flex align-items-center justify-content-center position-relative"
         style={{
-          height: "600px",
+          height: "890px",
           backgroundImage: `url(${paneerButterMasala})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
