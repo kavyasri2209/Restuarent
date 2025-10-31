@@ -14,7 +14,8 @@ import rasMalai from "../Images/ras-malai.jpg";
 import paneerTikka from "../Images/paneer-tikka.jpg";
 import roti from "../Images/roti.jpg";
 import idliSambar from "../Images/idli-sambar.jpg";
-
+import kulfi from "../Images/kulfi.png";
+import rosefalooda from "../Images/rosefalooda.png";
 export const menuData = [
   {
     id: 1,
@@ -186,6 +187,30 @@ export const menuData = [
     image: idliSambar,
     vegetarian: true,
     spicyLevel: 1,
+    available: true,
+  },
+  {
+    id: 16,
+    name: "Kulfi",
+    category: "Desserts",
+    price: 60,
+    description:
+      "Traditional Indian frozen dessert made with thickened milk and rich flavors of nuts and fruits",
+    image: kulfi,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+  {
+    id: 16,
+    name: "RoseFalooda",
+    category: "Desserts",
+    price: 60,
+    description:
+      "Refreshing layered dessert drink with silky vermicelli, basil seeds, ice cream, and sweet syrup",
+    image: rosefalooda,
+    vegetarian: true,
+    spicyLevel: 0,
     available: true,
   },
 ];

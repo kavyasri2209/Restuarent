@@ -50,12 +50,12 @@ function Signup() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center min-vh-100 bg-light p-3">
+    <div className="d-flex align-items-center justify-content-center min-vh-80 bg-light p-3 ">
       <div
-        className="card shadow-lg border-0"
+        className="card shadow-lg border-0 "
         style={{ maxWidth: "450px", width: "100%" }}
       >
-        <div className="card-body p-4">
+        <div className="card-body p-4 card">
           <div className="text-center mb-4">
             <div
               className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3"
@@ -69,7 +69,7 @@ function Signup() {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label fw-semibold">Full Name</label>
+              <label className="form-label ">Full Name</label>
               <input
                 type="text"
                 name="name"
@@ -81,7 +81,7 @@ function Signup() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label fw-semibold">Email</label>
+              <label className="form-label ">Email</label>
               <input
                 type="email"
                 name="email"
@@ -93,7 +93,7 @@ function Signup() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label fw-semibold">Phone Number</label>
+              <label className="form-label ">Phone Number</label>
               <input
                 type="text"
                 name="phone"
@@ -105,7 +105,7 @@ function Signup() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label fw-semibold">Password</label>
+              <label className="form-label ">Password</label>
               <input
                 type="password"
                 name="password"
@@ -117,7 +117,7 @@ function Signup() {
             </div>
 
             <div className="mb-3">
-              <label className="form-label fw-semibold">Confirm Password</label>
+              <label className="form-label ">Confirm Password</label>
               <input
                 type="password"
                 name="confirmPassword"
