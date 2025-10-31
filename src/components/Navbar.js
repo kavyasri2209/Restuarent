@@ -39,7 +39,7 @@ const Navbar = () => {
             className="img-fluid"
             style={{
               height: "50px",
-              width: "80px",
+              width: "150px",
               objectFit: "contain",
             }}
           />
