@@ -42,14 +42,14 @@ const Login = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+    <div className="bg d-flex justify-content-center align-items-center">
       <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
         <div
-              className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3"
-              style={{ width: "60px", height: "60px" }}
-            >
-              <i className="bi bi-person-plus fs-3 text-white"></i>
-            </div>
+          className="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3"
+          style={{ width: "60px", height: "60px" }}
+        >
+          <i className="bi bi-person-plus fs-3 text-white"></i>
+        </div>
         <h3 className="text-center mb-3 text-dark fw-bold">Login</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">

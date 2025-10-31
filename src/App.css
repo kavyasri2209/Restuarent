@@ -147,9 +147,23 @@ a {
 .navbar .btn-signup {
   background-color: #ff7b00 !important;
   color: #fff !important;
+  border: none !important;
   border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-
+.navbar .btn-login {
+  border: 2px solid #ff7b00 !important;
+  color: #ff7b00 !important;
+  background-color: transparent !important;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 .navbar .btn-signup:hover,
 .navbar .btn-signup:focus {
   background-color: #e56f00 !important;
@@ -172,4 +186,46 @@ a {
 .navbar .nav-link,
 .navbar .btn {
   transition: all 0.3s ease-in-out;
+}
+.bg {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url(Images/restbg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.bg2 {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url(Images/kitchenbg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+/* Make sure this is present globally */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bg {
+    background-position: center top;
+  }
 }

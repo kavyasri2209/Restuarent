@@ -62,8 +62,7 @@ const Navbar = () => {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) =>
-                    `nav-link fw-medium px-3 py-2 rounded ${
-                      isActive ? "active-link" : "inactive-link"
+                    `nav-link fw-medium px-3 py-2 rounded ${isActive ? "active-link" : "inactive-link"
                     }`
                   }
                   onClick={() => setIsMenuOpen(false)}
@@ -87,7 +86,7 @@ const Navbar = () => {
                     transform: "translate(-30%, 30%)",
                   }}
                 >
-                  {cartCount} 
+                  {cartCount}
                 </span>
               )}
             </NavLink>
@@ -100,7 +99,7 @@ const Navbar = () => {
                   {currentUser.name}
                 </span>
                 <button
-                  className="btn btn-sm btn-outline-danger"
+                  className="btn btn-md btn-outline-danger"
                   onClick={handleLogout}
                 >
                   <i className="bi bi-box-arrow-right me-1"></i> Logout
@@ -110,26 +109,20 @@ const Navbar = () => {
               <div className="d-flex align-items-center gap-2">
                 <NavLink
                   to="/login"
-                  className={({ isActive }) =>
-                    `btn btn-md blue-btn ${
-                      isActive ? "active-blue" : "inactive-blue"
-                    }`
-                  }
+                  className="btn-login ms-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login
                 </NavLink>
+
                 <NavLink
                   to="/signup"
-                  className={({ isActive }) =>
-                    `btn btn-md blue-btn ${
-                      isActive ? "active-blue" : "inactive-blue"
-                    }`
-                  }
+                  className="btn-signup ms-3"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Sign Up
                 </NavLink>
+
               </div>
             )}
           </div>

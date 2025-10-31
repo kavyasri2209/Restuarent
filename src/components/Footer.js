@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="secondary text-white py-4 mt-5 shadow-sm">
+    <footer className="secondary text-white py-4  shadow-sm">
       <div className="container text-center">
         {/* <h4 className="text-white">LaCuisine</h4> */}
         <p>123, Food Street, Visakhapatnam, India | Phone: 9876543210 | Email: contact@lacuisine.com</p>

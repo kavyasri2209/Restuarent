@@ -23,7 +23,7 @@ const Menu = () => {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="bg-light min-vh-100">
+    <div className="bg-light min-vh-100 ">
       {/* Hero Section */}
       <div className="bg-warning text-white py-5 text-center">
         <div className="container">
@@ -31,8 +31,8 @@ const Menu = () => {
           <p className="lead mb-0">Discover our delicious selection of authentic Indian cuisine</p>
         </div>
       </div>
-
-      <div className="container py-5">
+      <div className="bg2">
+      <div className="container py-5 ">
         {/* Search Bar */}
         <div className="row justify-content-center mb-4">
           <div className="col-md-6">
@@ -128,6 +128,7 @@ const Menu = () => {
             <p className="text-muted fs-5">No items found matching your search.</p>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

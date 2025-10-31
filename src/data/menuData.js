@@ -1,6 +1,6 @@
 // src/data/menuData.js
 import paneerButterMasala from "../Images/paneer-butter-masala.jpg";
-import samosa from "../Images/samosa.jpg";
+import prawnfry from "../Images/prawnfry.jpg";
 import biryani from "../Images/biryani.jpg";
 import naan from "../Images/naan.jpg";
 import gulabJamun from "../Images/gulab-jamun.jpg";
@@ -27,9 +27,22 @@ import masalatea from "../Images/masalatea.jpg";
 import coldcoffee from "../Images/coldcoffee.jpg";
 import limesoda from "../Images/limesoda.jpg";
 import lassi from "../Images/lassi.jpg";
-import filtercoffee from "../Images/filtercoffee.jpg"
-
-
+import filtercoffee from "../Images/filtercoffee.jpg";
+import coconutwater from "../Images/coconutwater.jpg";
+import rosemilk from "../Images/rosemilk.jpg";
+import rasgulla from "../Images/rasgulla.jpg";
+import brownie from "../Images/brownie.jpg";
+import gajarhalwa from "../Images/gajarhalwa.jpg";
+import rumaliroti from "../Images/rumaliroti.jpg";
+import palakpaneer from "../Images/palakpaneer.jpg";
+import prawnbiryani from "../Images/prawnbiryani.jpg";
+import fishfry from "../Images/fishfry.jpg";
+import eggbiryani from "../Images/eggbiryani.jpg";
+import crab from "../Images/crab.jpg";
+import chicken65 from "../Images/chicken65.jpg";
+import vegroll from "../Images/vegroll.jpg";
+import gobimanchurian from "../Images/gobimanchurian.jpg";
+import muttonkebab from "../Images/muttonkebab.jpg";
 
 export const menuData = [
   {
@@ -45,12 +58,12 @@ export const menuData = [
   },
   {
     id: 2,
-    name: "Vegetable Samosa",
+    name: "Prawn 65",
     category: "Appetizers",
-    price: 80,
+    price: 680,
     description:
-      "Crispy pastry filled with spiced potatoes and peas, served with chutneys",
-    image: samosa,
+      "Crispy prawns tossed with flavorful South Indian spices and curry leaves.",
+    image: prawnfry,
     vegetarian: true,
     spicyLevel: 1,
     available: true,
@@ -59,7 +72,7 @@ export const menuData = [
     id: 3,
     name: "Chicken Biryani",
     category: "Main Course",
-    price: 320,
+    price: 450,
     description:
       "Aromatic basmati rice layered with tender chicken and exotic spices",
     image: biryani,
@@ -354,6 +367,186 @@ export const menuData = [
     image: filtercoffee,
     vegetarian: true,
     spicyLevel: 0,
+    available: true,
+  },
+   {
+    id: 29,
+    name: "Lassi",
+    category: "Beverages",
+    price: 55,
+    description: "Thick, creamy yogurt-based drink available in sweet or salted versions for a cooling delight.",
+    image: lassi,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+   {
+    id: 30,
+    name: "Coconut Water",
+    category: "Beverages",
+    price: 30,
+    description: "Naturally refreshing and hydrating drink straight from tender coconuts.",
+    image: coconutwater,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+  {
+    id: 31,
+    name: "Rose Milk",
+    category: "Beverages",
+    price: 30,
+    description: "Chilled, fragrant blend of milk and rose syrup offering a sweet and refreshing flavor.",
+    image: rosemilk,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+   {
+    id: 32,
+    name: "Rasgulla",
+    category: "Desserts",
+    price: 100,
+    description:
+      "Spongy cottage cheese balls soaked in light sugar syrup .",
+    image: rasgulla,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+   {
+    id: 33,
+    name: "Chocolate Brownie with Ice Cream",
+    category: "Desserts",
+    price: 250,
+    description:
+      "Warm, fudgy brownie topped with a scoop of vanilla ice cream and chocolate sauce.",
+    image: brownie,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+  {
+    id: 34,
+    name: "Gajar Halwa",
+    category: "Desserts",
+    price: 300,
+    description:
+      "Slow-cooked grated carrots with milk, sugar, and ghee, garnished with nuts.",
+    image: gajarhalwa,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+  {
+    id: 35,
+    name: "Rumali Roti",
+    category: "Breads",
+    price: 180,
+    description:
+      "Ultra-thin, handkerchief-style bread made from refined flour, light and soft.",
+    image: rumaliroti,
+    vegetarian: true,
+    spicyLevel: 0,
+    available: true,
+  },
+   {
+    id: 36,
+    name: "Palak Paneer",
+    category: "Main Course",
+    price: 350,
+    description: "Cottage cheese simmered in a smooth spinach gravy with mild spices.",
+    image: palakpaneer,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+   {
+    id: 37,
+    name: "Prawn Biryani",
+    category: "Main Course",
+    price: 850,
+    description: "Fragrant basmati rice layered with succulent prawns, cooked in aromatic spices for a coastal twist",
+    image: prawnbiryani,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+   {
+    id: 38,
+    name: "Fish fry",
+    category: "Appetizers",
+    price: 350,
+    description: "Crispy, golden-fried fish marinated with traditional coastal spices.",
+    image: fishfry,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+    {
+    id: 39,
+    name: "Egg biryani",
+    category: "Main Course",
+    price: 300,
+    description: "Layered basmati rice cooked with spiced boiled eggs and aromatic masalas",
+    image: eggbiryani,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+   {
+    id: 40,
+    name: "Crab",
+    category: "Main Course",
+    price: 550,
+    description: "Crabs cooked in a spicy coastal-style gravy with bold South Indian spices.",
+    image: crab,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+     {
+    id: 41,
+    name: "Chicken 65",
+    category: "Appetizers",
+    price: 450,
+    description: "Crispy, deep-fried chicken bites marinated in South Indian spices and curry leaves.",
+    image: chicken65,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+   {
+    id: 42,
+    name: "Veg Spring Roll",
+    category: "Appetizers",
+    price: 250,
+    description: "Golden-fried rolls stuffed with seasoned vegetables and served with chili sauce.",
+    image: vegroll,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+   {
+    id: 43,
+    name: "Gobi Manchurian",
+    category: "Appetizers",
+    price: 270,
+    description: "Golden-fried rolls stuffed with seasoned vegetables and served with chili sauce.",
+    image: gobimanchurian,
+    vegetarian: true,
+    spicyLevel: 1,
+    available: true,
+  },
+  {
+    id: 44,
+    name: "Mutton Seekh Kebab",
+    category: "Appetizers",
+    price: 650,
+    description: "Juicy minced mutton skewers grilled with aromatic herbs and spices.",
+    image: muttonkebab,
+    vegetarian: true,
+    spicyLevel: 1,
     available: true,
   },
 ];

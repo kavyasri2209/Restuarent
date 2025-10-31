@@ -50,7 +50,7 @@ function Signup() {
   };
 
   return (
-    <div className="d-flex align-items-center justify-content-center min-vh-80 bg-light p-3 ">
+    <div className="d-flex align-items-center justify-content-center min-vh-80 bg-light p-3 bg ">
       <div
         className="card shadow-lg border-0 "
         style={{ maxWidth: "450px", width: "100%" }}

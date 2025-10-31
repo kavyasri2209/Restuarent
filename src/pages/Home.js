@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import paneerButterMasala from "../Images/paneer-butter-masala.jpg";
-import samosa from "../Images/samosa.jpg";
+import brownie from "../Images/brownie.jpg";
 import biryani from "../Images/biryani.jpg";
 import naan from "../Images/naan.jpg";
 import gulabJamun from "../Images/gulab-jamun.jpg";
@@ -21,10 +21,10 @@ const Home = () => {
       description: "Rich and creamy paneer-based curry",
     },
     {
-      name: "Vegetable Samosa",
-      price: 80,
-      image: samosa,
-      description: "Crispy pastry with spiced filling",
+      name: "Chocolate Brownie With Icecream",
+      price: 250,
+      image: brownie,
+      description: "Warm, fudgy brownie .",
     },
     {
       name: "Chicken Biryani",
@@ -42,25 +42,25 @@ const Home = () => {
       name: "Gulab Jamun",
       price: 120,
       image: gulabJamun,
-      description: "Soft milk-solid dumplings soaked in rose-flavored sugar syrup",
+      description: "Soft milk-solid dumplings soaked syrup",
     },
     {
       name: "Masala Dosa",
       price: 150,
       image: dosa,
-      description: "Crispy rice crepe filled with spiced potato filling, served with sambar and chutney",
+      description: "Crispy rice crepe .",
     },
     {
       name: "Dal Makhani",
       price: 240,
       image: dalMakhani,
-      description: "Creamy black lentils slow-cooked with butter and cream",
+      description: "Lentils slow-cooked with butter and cream",
     },
     {
       name: "Tandoori Chicken",
       price: 380,
       image: tandooriChicken,
-      description: "Succulent chicken marinated in yogurt and spices, cooked in tandoor",
+      description: "Succulent chicken marinated with spices.",
     },
     {
       name: "Garlic Naan",
@@ -76,7 +76,7 @@ const Home = () => {
       <section
         className="text-center text-white d-flex align-items-center justify-content-center position-relative"
         style={{
-          height: "890px",
+          height: "600px",
           backgroundImage: `url(${paneerButterMasala})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
