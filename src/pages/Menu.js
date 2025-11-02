@@ -31,7 +31,7 @@ const Menu = () => {
           <p className="lead mb-0">Discover our delicious selection of authentic Indian cuisine</p>
         </div>
       </div>
-      <div className="bg2">
+      <div className="">
       <div className="container py-5 ">
         {/* Search Bar */}
         <div className="row justify-content-center mb-4">

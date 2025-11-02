@@ -2,6 +2,7 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #fffaf3;
   color: #000;
+
 }
 
 a {
@@ -189,7 +190,7 @@ a {
 }
 .bg {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-image: url(Images/restbg.jpg);
   background-size: cover;
   background-position: center;
@@ -203,7 +204,7 @@ a {
 }
 .bg2 {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-image: url(Images/kitchenbg.jpg);
   background-size: cover;
   background-position: center;
@@ -228,4 +229,9 @@ html, body, #root {
   .bg {
     background-position: center top;
   }
+}
+.username{
+  font-size: 1.2rem;       /* You can increase to 1.1rem or 1.2rem */
+  font-weight: 500;
+  color: #555;            /* optional */
 }

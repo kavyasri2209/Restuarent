@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "./components/ScrollToTop";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,6 +27,7 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <Router>
+          <ScrollToTop /> 
           <Navbar />
           <main style={{ minHeight: "80vh" }}>
             <Routes>
