@@ -23,9 +23,12 @@ function Order() {
     const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
     localStorage.setItem("orders", JSON.stringify([...existingOrders, order]));
 
+    localStorage.setItem("latestOrder", JSON.stringify(order));
+
     toast.success("Order placed successfully!");
     clearCart();
-    navigate("/");
+    navigate("/order-summary");
+
   };
 
   return (

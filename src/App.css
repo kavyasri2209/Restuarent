@@ -235,3 +235,28 @@ html, body, #root {
   font-weight: 500;
   color: #555;            /* optional */
 }
+.accordion-button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #fe7504; /* 🌈 your custom color */
+  color: #fff !important;    /* white text */
+  border-color: #fe7504;     /* border matches bg */
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1); /* turns it white */
+}
+.accordion-button:hover {
+  background-color: rgba(254, 117, 4, 0.9);
+  color: #fff;
+  border-color: #fe7504;
+}
+.accordion-button:focus {
+  box-shadow: none !important;
+  border-color: #fe7504 !important; /* keeps your custom border color */
+  outline: none !important;
+}

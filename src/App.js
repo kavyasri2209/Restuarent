@@ -18,6 +18,8 @@ import Reservation from "./pages/Reservation";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
+import OrderSummary from "./pages/OrderSummary";
+
 
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
@@ -27,7 +29,7 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <Router>
-          <ScrollToTop /> 
+          <ScrollToTop />
           <Navbar />
           <main style={{ minHeight: "80vh" }}>
             <Routes>
@@ -53,7 +55,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/about" element={<About />} />
+              <Route path="/order-summary" element={<OrderSummary />} />
               <Route path="*" element={<Navigate to="/" />} />
+
             </Routes>
           </main>
           <Footer />
