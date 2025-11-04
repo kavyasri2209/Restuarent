@@ -9,10 +9,20 @@ const Faq = () => {
         "Yes, you need to log in or sign up before placing an order or reserving a table. This helps us keep track of your orders easily.",
     },
     {
-      question: "Is delivery available?",
-      answer:
-        "Currently, we offer pickup and dine-in only. Delivery will be added soon!",
-    },
+    question: "Do you offer home delivery?",
+    answer:
+      "Yes! We offer door delivery with zero delivery charges within the city. Your food arrives fresh at your doorstep.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "As of now ,we only accept Cash on Delivery (COD) for all orders.",
+  },
+  {
+    question: "Can I reserve a table online?",
+    answer:
+      "Absolutely! You can reserve your table online to ensure a hassle-free dining experience.",
+  },
     {
       question: "How can I modify or cancel my reservation?",
       answer:

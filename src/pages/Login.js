@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login, isAuthenticated } = useAuth();
   const { cartItems } = useCart();
 
@@ -14,13 +15,15 @@ const Login = () => {
     password: "",
   });
 
-  // Redirect logged-in user automatically
+  // Determine where to redirect after login
+  const redirectPath = location.state?.from || "/";
+
+  // Redirect already logged-in user automatically
   useEffect(() => {
     if (isAuthenticated) {
-      if (cartItems.length > 0) navigate("/cart");
-      else navigate("/");
+      navigate(redirectPath, { replace: true });
     }
-  }, [isAuthenticated, navigate, cartItems]);
+  }, [isAuthenticated, navigate, redirectPath]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,8 +37,7 @@ const Login = () => {
 
     if (success) {
       toast.success("Login successful!");
-      if (cartItems.length > 0) navigate("/cart");
-      else navigate("/");
+      navigate(redirectPath, { replace: true });
     } else {
       toast.error("Invalid credentials! Please try again.");
     }

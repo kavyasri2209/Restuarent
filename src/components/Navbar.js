@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logo1 from "../Images/logo1.png";
@@ -19,6 +20,16 @@ const Navbar = () => {
     logout();
     navigate("/login");
     setIsMenuOpen(false);
+  };
+
+  // ✅ Handle Reservation click
+  const handleReservationClick = () => {
+    if (!currentUser) {
+      toast.warning("Please login to reserve a table🍽️");
+      navigate("/login", { state: { from: "/reservation" } });
+    } else {
+      navigate("/reservation");
+    }
   };
 
   // ✅ Links shown based on login status
@@ -45,7 +56,7 @@ const Navbar = () => {
             src={logo1}
             alt="Restaurant Logo"
             className="img-fluid"
-            style={{ height: "50px", width: "150px", objectFit: "contain" }}
+            style={{ height: "50px", width: "190px", objectFit: "contain" }}
           />
         </NavLink>
 
@@ -84,17 +95,27 @@ const Navbar = () => {
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             {navLinks.map((link) => (
               <li key={link.path} className="nav-item me-4">
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `nav-link fw-bold px-3 py-2 rounded ${
-                      isActive ? "active-link" : "inactive-link"
-                    }`
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </NavLink>
+                {link.name === "Reservations" ? (
+                  <span
+                    className="nav-link fw-bold px-3 py-2 rounded"
+                    onClick={handleReservationClick}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {link.name}
+                  </span>
+                ) : (
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `nav-link fw-bold px-3 py-2 rounded ${
+                        isActive ? "active-link" : "inactive-link"
+                      }`
+                    }
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </NavLink>
+                )}
               </li>
             ))}
           </ul>
