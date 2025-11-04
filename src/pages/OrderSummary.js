@@ -10,10 +10,7 @@ function OrderSummary() {
       <section style={{ backgroundColor: "#fffaf3", color: "#000", minHeight: "100vh" }}>
         <div className="container py-5 text-center">
           <p>No recent order found.</p>
-          <button
-            className="btn btn-warning mt-3"
-            onClick={() => navigate("/menu")}
-          >
+          <button className="btn btn-warning mt-3" onClick={() => navigate("/menu")}>
             Go to Menu
           </button>
         </div>
@@ -25,7 +22,7 @@ function OrderSummary() {
     <section style={{ backgroundColor: "#fffaf3", color: "#000", minHeight: "100vh" }}>
       <div className="container py-5">
         <h2 className="mb-4 fw-bold" style={{ color: "#ff7b00" }}>
-          Order Placed Successfully 🎉
+          Order Placed Successfully !
         </h2>
 
         <div className="bg-white p-4 rounded shadow-sm">
@@ -36,24 +33,32 @@ function OrderSummary() {
 
           {order.items.map((item) => (
             <div key={item.id} className="d-flex justify-content-between mb-2">
-              <span>
-                {item.name} x {item.quantity}
-              </span>
-              <span>₹{item.price * item.quantity}</span>
+              <span>{item.name} x {item.quantity}</span>
+              <span>₹{(item.price * item.quantity).toFixed(2)}</span>
             </div>
           ))}
 
           <hr />
           <div className="d-flex justify-content-between fw-bold">
             <span>Subtotal</span>
-            <span>₹{order.subtotal}</span>
+            <span>₹{order.subtotal.toFixed(2)}</span>
+          </div>
+          <div className="d-flex justify-content-between fw-bold">
+            <span>Tax (5%)</span>
+            <span>₹{order.tax.toFixed(2)}</span>
+          </div>
+          <div className="d-flex justify-content-between fw-bold">
+            <span>Delivery</span>
+            <span>{order.deliveryCharges === 0 ? "FREE" : `₹${order.deliveryCharges}`}</span>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between fw-bold fs-5">
+            <span>Total</span>
+            <span style={{ color: "#ff7b00" }}>₹{order.totalAmount.toFixed(2)}</span>
           </div>
 
           <div className="text-center mt-4">
-            <button
-              className="btn btn-warning px-4"
-              onClick={() => navigate("/menu")}
-            >
+            <button className="btn btn-warning px-4" onClick={() => navigate("/menu")}>
               Continue Shopping
             </button>
           </div>

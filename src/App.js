@@ -18,11 +18,18 @@ import Reservation from "./pages/Reservation";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
+import Faq from "./pages/Faq";
+
 import OrderSummary from "./pages/OrderSummary";
 
-
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+
+// ✅ Redirect logic component
+const RedirectHome = () => {
+  const { currentUser } = useAuth();
+  return currentUser ? <Navigate to="/menu" /> : <Home />;
+};
 
 function App() {
   return (
@@ -33,7 +40,7 @@ function App() {
           <Navbar />
           <main style={{ minHeight: "80vh" }}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<RedirectHome />} />
               <Route path="/menu" element={<Menu />} />
               <Route path="/cart" element={<Cart />} />
               <Route
@@ -55,9 +62,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/about" element={<About />} />
+              <Route path="/faqs" element={<Faq />} />
               <Route path="/order-summary" element={<OrderSummary />} />
               <Route path="*" element={<Navigate to="/" />} />
-
             </Routes>
           </main>
           <Footer />

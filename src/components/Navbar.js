@@ -17,55 +17,57 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate("/login");
     setIsMenuOpen(false);
   };
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Menu", path: "/menu" },
-    { name: "Reservations", path: "/reservation" },
-    { name: "About", path: "/about" },
-  ];
+  // ✅ Links shown based on login status
+  const navLinks = currentUser
+    ? [
+        { name: "Menu", path: "/menu" },
+        { name: "Reservations", path: "/reservation" },
+        { name: "About", path: "/about" },
+        { name: "FAQs", path: "/faqs" },
+      ]
+    : [
+        { name: "Home", path: "/" },
+        { name: "Reservations", path: "/reservation" },
+        { name: "About", path: "/about" },
+        { name: "FAQs", path: "/faqs" },
+      ];
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
-      <div className="container ">
+      <div className="container">
         {/* Logo */}
         <NavLink className="navbar-brand d-flex align-items-center" to="/">
           <img
             src={logo1}
             alt="Restaurant Logo"
             className="img-fluid"
-            style={{
-              height: "50px",
-              width: "150px",
-              objectFit: "contain",
-             
-            }}
+            style={{ height: "50px", width: "150px", objectFit: "contain" }}
           />
         </NavLink>
 
         <div className="d-flex align-items-center">
-          {/* Cart icon beside hamburger (visible always) */}
-          <NavLink
-            to="/cart"
-            className="btn position-relative me-3 d-lg-none"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <i className="bi bi-cart3 fs-5 text-dark"></i>
-            {cartCount > 0 && (
-              <span
-                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"
-                style={{
-                  fontSize: "0.7rem",
-                  transform: "translate(-30%, 30%)",
-                }}
-              >
-                {cartCount}
-              </span>
-            )}
-          </NavLink>
+          {/* Cart icon beside hamburger (mobile) */}
+          {currentUser && (
+            <NavLink
+              to="/cart"
+              className="btn position-relative me-3 d-lg-none"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <i className="bi bi-cart3 fs-5 text-dark"></i>
+              {cartCount > 0 && (
+                <span
+                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"
+                  style={{ fontSize: "0.7rem", transform: "translate(-30%, 30%)" }}
+                >
+                  {cartCount}
+                </span>
+              )}
+            </NavLink>
+          )}
 
           {/* Mobile Toggle */}
           <button
@@ -97,19 +99,29 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* ✅ Auth Buttons in mobile view (in one row, using your custom classes) */}
-          <div className="d-flex align-items-center justify-content-center gap-2 mt-3 d-lg-none flex-wrap">
+          {/* ✅ Auth Buttons */}
+          <div className="d-flex align-items-center gap-3 flex-wrap justify-content-center mt-2 mt-lg-0">
             {currentUser ? (
               <>
-                <span className="text-muted small username d-flex align-items-center gap-1">
-                  <i className="bi bi-person-circle"></i>
-                  {currentUser.name}
+                {/* Cart Icon (Desktop) */}
+                <NavLink to="/cart" className="btn position-relative d-none d-lg-inline">
+                  <i className="bi bi-cart3 fs-5 text-dark"></i>
+                  {cartCount > 0 && (
+                    <span
+                      className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"
+                      style={{ fontSize: "0.7rem", transform: "translate(-30%, 30%)" }}
+                    >
+                      {cartCount}
+                    </span>
+                  )}
+                </NavLink>
+
+                {/* User Info + Logout */}
+                <span className="text-muted small d-flex align-items-center gap-1">
+                  <i className="bi bi-person-circle"></i> {currentUser.name}
                 </span>
-                <button
-                  className="btn btn-md btn-outline-danger"
-                  onClick={handleLogout}
-                >
-                  <i className="bi bi-box-arrow-right me-1"></i><span className="fw-semibold fs-1">Logout</span>
+                <button className="btn btn-md btn-outline-danger" onClick={handleLogout}>
+                  <i className="bi bi-box-arrow-right me-1"></i> Logout
                 </button>
               </>
             ) : (
@@ -129,58 +141,6 @@ const Navbar = () => {
                   Sign Up
                 </NavLink>
               </>
-            )}
-          </div>
-
-          {/* Right Section (desktop view) */}
-          <div className="d-none d-lg-flex align-items-center gap-3">
-            {/* Cart */}
-            <NavLink to="/cart" className="btn position-relative">
-              <i className="bi bi-cart3 fs-5 text-dark"></i>
-              {cartCount > 0 && (
-                <span
-                  className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"
-                  style={{
-                    fontSize: "0.7rem",
-                    transform: "translate(-30%, 30%)",
-                  }}
-                >
-                  {cartCount}
-                </span>
-              )}
-            </NavLink>
-
-            {/* Auth Buttons */}
-            {currentUser ? (
-              <div className="d-flex align-items-center gap-2">
-                <span className="text-muted small d-flex align-items-center gap-1 username">
-                  <i className="bi bi-person-circle"></i>
-                  {currentUser.name}
-                </span>
-                <button
-                  className="btn btn-md btn-outline-danger"
-                  onClick={handleLogout}
-                >
-                  <i className="bi bi-box-arrow-right me-1"></i> Logout
-                </button>
-              </div>
-            ) : (
-              <div className="d-flex align-items-center gap-2">
-                <NavLink
-                  to="/login"
-                  className="btn-login ms-2 btn-md"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Login
-                </NavLink>
-                <NavLink
-                  to="/signup"
-                  className="btn-signup ms-3 btn-md"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Sign Up
-                </NavLink>
-              </div>
             )}
           </div>
         </div>
