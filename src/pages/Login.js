@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { login, isAuthenticated } = useAuth();
-  const { cartItems } = useCart();
 
   const [formData, setFormData] = useState({
     email: "",
