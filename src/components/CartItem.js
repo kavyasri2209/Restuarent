@@ -10,7 +10,7 @@ const CartItem = ({ item }) => {
         {/* 🖼️ Item Image */}
         <div className="col-auto">
           <img
-            src={item.image} // ✅ Directly use image from menuData
+            src={item.image}
             alt={item.name}
             className="img-fluid rounded"
             style={{
@@ -22,32 +22,35 @@ const CartItem = ({ item }) => {
         </div>
 
         {/* 📝 Item Details */}
-        <div className="col ps-3">
-          <div className="d-flex justify-content-between align-items-start">
-            <div>
-              <h5 className="mb-1">{item.name}</h5>
-              <p
-                className="text-muted mb-1"
-                style={{
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-              >
-                {item.description}
-              </p>
-            </div>
-            <button
-              className="btn btn-sm btn-outline-danger"
-              onClick={() => removeFromCart(item.id)}
+        <div className="col ps-3 position-relative">
+          <div className="pe-4">
+            <h5 className="mb-1">{item.name}</h5>
+            <p
+              className="text-muted mb-1"
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
             >
-              <i className="bi bi-x-lg"></i>
-            </button>
+              {item.description}
+            </p>
           </div>
 
+          {/* ❌ X Button (fixed position inside card) */}
+          <button
+            className="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2"
+            onClick={() => removeFromCart(item.id)}
+            style={{
+              zIndex: 10,
+            }}
+          >
+            <i className="bi bi-x-lg"></i>
+          </button>
+
           {/* 🔢 Quantity Controls */}
-          <div className="d-flex justify-content-between align-items-center mt-3">
-            <div className="d-flex align-items-center gap-2">
+          <div className="d-flex justify-content-between align-items-center mt-3 flex-wrap">
+            <div className="d-flex align-items-center gap-2 mb-2 mb-md-0">
               <button
                 className="btn btn-outline-secondary btn-sm"
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
