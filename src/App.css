@@ -304,4 +304,9 @@ html, body, #root {
   border-color: #fe7504 !important; /* keeps your custom border color */
   outline: none !important;
 }
+.search-input:focus {
+  box-shadow: 0 0 0 0.1rem #feba82 !important;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
 

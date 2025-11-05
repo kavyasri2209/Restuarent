@@ -2,13 +2,13 @@ import React, { useState, useMemo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { menuData } from "../data/menuData";
-import { useCart } from "../context/CartContext"; // ✅ Import cart context
+import { useCart } from "../context/CartContext";
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { addToCart } = useCart(); // ✅ Access addToCart from context
+  const { addToCart } = useCart();
 
   const categories = ["All", ...Array.from(new Set(menuData.map((item) => item.category)))];
 
@@ -23,7 +23,7 @@ const Menu = () => {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="bg-light min-vh-100 ">
+    <div className="bg-light min-vh-100">
       {/* Hero Section */}
       <div className="bg-warning text-white py-5 text-center">
         <div className="container">
@@ -31,22 +31,35 @@ const Menu = () => {
           <p className="lead mb-0">Discover our delicious selection of authentic Indian cuisine</p>
         </div>
       </div>
-      <div className="">
-      <div className="container py-5 ">
+
+      <div className="container py-5">
         {/* Search Bar */}
         <div className="row justify-content-center mb-4">
           <div className="col-md-6">
-            <div className="input-group shadow-sm">
-              <span className="input-group-text bg-white border-end-0">
-                <i className="bi bi-search text-muted"></i>
-              </span>
+            <div className="position-relative shadow-sm ">
               <input
                 type="text"
-                className="form-control border-start-0"
+                className="form-control ps-5 search-input"
                 placeholder="Search dishes..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
+              {/* Search Icon */}
+              <i
+                className="bi bi-search text-muted position-absolute"
+                style={{ left: "15px", top: "50%", transform: "translateY(-50%)" }}
+              ></i>
+              {/* Clear Button */}
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="btn btn-sm btn-light position-absolute"
+                  style={{ right: "10px", top: "50%", transform: "translateY(-50%)", padding: "0 6px" }}
+                >
+                  &times;
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -62,10 +75,7 @@ const Menu = () => {
                   ? "btn-warning text-white"
                   : "btn-outline-warning text-dark btn-color"
               }`}
-              style={{
-                textDecoration: "none",
-                outline: "none",
-              }}
+              style={{ textDecoration: "none", outline: "none" }}
             >
               {category}
             </button>
@@ -79,38 +89,24 @@ const Menu = () => {
               <div key={item.id} className="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
                 <div
                   className="card h-100 shadow-sm border-0 d-flex flex-column w-100"
-                  style={{
-                    backgroundColor: "#fffaf3",
-                    borderRadius: "12px",
-                  }}
+                  style={{ backgroundColor: "#fffaf3", borderRadius: "12px" }}
                 >
-                  {/* Image */}
                   <img
                     src={item.image}
                     alt={item.name}
                     className="card-img-top"
-                    style={{
-                      height: "200px",
-                      objectFit: "cover",
-                      borderRadius: "12px 12px 0 0",
-                    }}
+                    style={{ height: "200px", objectFit: "cover", borderRadius: "12px 12px 0 0" }}
                   />
-
-                  {/* Card Body */}
                   <div className="card-body d-flex flex-column justify-content-between flex-grow-1 text-dark">
                     <div>
                       <h5 className="card-title fw-bold mb-1">{item.name}</h5>
                       <p className="card-text small mb-3">{item.description}</p>
                     </div>
-
-                    {/* Bottom section */}
                     <div>
                       <div className="d-flex justify-content-between align-items-center mb-3">
                         <span className="fw-bold text-primary">₹{item.price}</span>
                         <span className="badge1">{item.category}</span>
                       </div>
-
-                      {/* ✅ Add to Cart now works */}
                       <button
                         onClick={() => addToCart(item)}
                         className="btn btn-warning btn-md rounded-pill w-100 px-3"
@@ -128,7 +124,6 @@ const Menu = () => {
             <p className="text-muted fs-5">No items found matching your search.</p>
           </div>
         )}
-      </div>
       </div>
     </div>
   );
