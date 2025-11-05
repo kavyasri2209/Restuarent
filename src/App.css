@@ -309,4 +309,21 @@ html, body, #root {
   outline: none;
   transition: box-shadow 0.3s;
 }
+.reservation-bg {
+  background-image: url("Images/restbg.jpg"); /* 👈 Put your image in public/images folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .reservation-bg {
+    background-position: top;
+    padding: 20px;
+  }
+}
 
