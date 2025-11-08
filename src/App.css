@@ -305,9 +305,12 @@ html, body, #root {
   outline: none !important;
 }
 .search-input:focus {
-  box-shadow: 0 0 0 0.1rem #feba82 !important;
+  box-shadow: 0 0 0 0.1rem #fea155 !important;
   outline: none;
   transition: box-shadow 0.3s;
+}
+.search-input1{
+
 }
 .reservation-bg {
   background-image: url("Images/restbg.jpg"); /* 👈 Put your image in public/images folder */

@@ -64,7 +64,7 @@ const Reservation = () => {
                       type="text"
                       id="name"
                       name="name"
-                      className="form-control"
+                      className="form-control search-input"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your name"
@@ -79,7 +79,7 @@ const Reservation = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="form-control"
+                      className="form-control search-input"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your email"
@@ -94,7 +94,7 @@ const Reservation = () => {
                       type="date"
                       id="date"
                       name="date"
-                      className="form-control"
+                      className="form-control search-input"
                       value={formData.date}
                       onChange={handleChange}
                     />
@@ -108,7 +108,7 @@ const Reservation = () => {
                       type="time"
                       id="time"
                       name="time"
-                      className="form-control"
+                      className="form-control search-input"
                       value={formData.time}
                       onChange={handleChange}
                     />
@@ -122,7 +122,7 @@ const Reservation = () => {
                       type="number"
                       id="guests"
                       name="guests"
-                      className="form-control"
+                      className="form-control search-input"
                       value={formData.guests}
                       onChange={handleChange}
                       placeholder="Enter number of guests"
@@ -132,7 +132,7 @@ const Reservation = () => {
 
                   <button
                     type="submit"
-                    className="btn btn-warning w-100 text-white fw-semibold py-2"
+                    className="btn btn-warning w-100 text-white fw-semibold py-2 search-input"
                   >
                     <i className="bi bi-check2-circle me-2"></i>Book Table
                   </button>

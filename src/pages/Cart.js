@@ -17,7 +17,7 @@ const Cart = () => {
       return;
     }
 
-    toast.success("Order placed successfully!");
+    // toast.success("Order placed successfully!");
     clearCart();
     navigate("/order");
   };

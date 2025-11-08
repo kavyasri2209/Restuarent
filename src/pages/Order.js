@@ -113,7 +113,7 @@ function Order() {
                     <input
                       type="text"
                       name="name"
-                      className={`form-control ${
+                      className={`form-control search-input ${
                         errors.name ? "is-invalid" : ""
                       }`}
                       value={formData.name}
@@ -128,7 +128,7 @@ function Order() {
                     <input
                       type="tel"
                       name="phone"
-                      className={`form-control ${
+                      className={`form-control search-input ${
                         errors.phone ? "is-invalid" : ""
                       }`}
                       value={formData.phone}
@@ -144,7 +144,7 @@ function Order() {
                     <input
                       type="email"
                       name="email"
-                      className={`form-control ${
+                      className={`form-control search-input ${
                         errors.email ? "is-invalid" : ""
                       }`}
                       value={formData.email}
@@ -161,7 +161,7 @@ function Order() {
                   <textarea
                     name="address"
                     rows="3"
-                    className={`form-control ${
+                    className={`form-control search-input ${
                       errors.address ? "is-invalid" : ""
                     }`}
                     value={formData.address}
@@ -178,7 +178,7 @@ function Order() {
                     <input
                       type="text"
                       name="city"
-                      className={`form-control ${
+                      className={`form-control search-input${
                         errors.city ? "is-invalid" : ""
                       }`}
                       value={formData.city}
@@ -193,7 +193,7 @@ function Order() {
                     <input
                       type="text"
                       name="pincode"
-                      className={`form-control ${
+                      className={`form-control search-input${
                         errors.pincode ? "is-invalid" : ""
                       }`}
                       value={formData.pincode}
@@ -208,7 +208,7 @@ function Order() {
 
                 <button
                   type="submit"
-                  className="btn btn-warning w-100 fw-bold mt-3"
+                  className="btn btn-warning w-100 fw-bold mt-3 search-input"
                 >
                   Place Order (COD)
                 </button>
